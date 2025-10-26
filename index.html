@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+    <link rel="stylesheet" href="./style/style.css">
+    <link rel="icon" type="image/png" href="./resources/favicon/favicon.png">
+</head>
+<body>
+   <h1 class="title1">Faça seu cadastro</h1>
+   <h4 class="title2">Preencha com seus dados, por favor:</h4>
+
+
+   <form id="registro" action="index.php" method="post" enctype="multipart/form-data">
+
+   <div class="form-row">
+   <label for="user">Nome:</label>
+   <input type="text" id="user" minlength="5" maxlength="12" placeholder="seu nome aqui...." required>
+   </div>
+
+   <div class="form-row">
+   <label for="email">Email:</label>
+   <input type="email" id="email" name="email" placeholder="seu melhor email..." required>
+   </div>
+
+   <div class="form-row">
+   <label for="senha">Senha:</label>
+   <input type="password" id="senha" name="senha" placeholder="********" minlength="8" required>
+   </div>
+
+   <div class="form-row">
+   <label for="senha2">Confirmar Senha:</label>
+   <input type="password" id="senha2" name="senha2" placeholder="********" required minlength="8">
+   </div>
+
+   <!--página dos termos-->
+   <div class="termos-final">
+    <label class="form-row">
+        <input type="checkbox" id="terms" required class="term-label">
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit.<a href="./terms/terms.html" target="_blank" title="Leva para a página de termos e condições">Termos e Condições</a>
+    </label>
+   </div>
+ 
+   <br>
+<!--botões de limpar e confirmar form-->
+   <div class="form-row">
+   <button type="button" onclick="window.location.href='./seguinte.html'" class="confirma">confirma</button>
+   <input type="reset" class="confirma" value="apagar tudo">
+   </div>
+   <br>
+   <br>
+   </form>
+
+   <!--JS para confirmar senha se elas forem iguais-->
+   <script>
+    const form = document.getElementById('registro');
+    const senha = document.getElementById('senha');
+    const senha2 = document.getElementById('senha2');
+
+    form.addEventListener('submit', function(event){
+        if (senha.value !== senha2.value) {
+            event.preventDefault();
+            alert('As senhas não coincidem!. Tente novamente');
+            senha2.focus();
+        }
+    });
+</script>
+
+   <hr>
+   <footer id="footer">Registro 2025</footer>
+
+</body>
+</html>
